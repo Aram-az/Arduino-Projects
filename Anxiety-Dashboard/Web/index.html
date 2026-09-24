@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <title>Anxiety Event Dashboard</title>
+
+  <!-- Google Font -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="shell">
+    <div class="app">
+      <header>
+        <div class="title-block">
+            <h1>Anxiety Event Dashboard</h1>
+            <div class="subtitle">
+            Live stream from Arduino-based wearable · GSR · Tremor
+            </div>
+        </div>
+        <div class="filters">
+            <span class="filter-label">Time window:</span>
+            <div class="chip-group">
+            <button class="chip active" data-window="session">Session</button>
+            <button class="chip" data-window="short">Last ~30 samples</button>
+            <button class="chip" data-window="long">Last ~100 samples</button>
+            </div>
+            <!-- Demo trigger button -->
+            <button id="demoTrigger" class="demo-btn">Trigger Demo Episode</button>
+        </div>
+    </header>
+
+
+      <main>
+        <section>
+          <!-- KPI cards -->
+          <div class="cards">
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-title">Events (this session)</div>
+                <div class="card-value" id="eventsCount">0</div>
+                <div class="card-meta">Number of anxiety detections received</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-title">Last event time (s)</div>
+                <div class="card-value" id="lastTime">–</div>
+                <div class="card-meta">Relative to device start</div>
+              </div>
+            </div>
+            <div class="card">
+              <div class="card-inner">
+                <div class="card-title">Last severity</div>
+                <div class="card-value" id="lastSeverity">–</div>
+                <div class="card-meta">0 = low, 1 = medium, 2 = high</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Chart -->
+          <div id="chartContainer">
+            <canvas id="gsrChart"></canvas>
+          </div>
+
+          <!-- Table -->
+          <h3>Recent Events</h3>
+          <table>
+            <thead>
+              <tr>
+                <th>Time (s)</th>
+                <th>GSR</th>
+                <th>Tremor</th>
+                <th>Severity</th>
+              </tr>
+            </thead>
+            <tbody id="eventsTableBody"></tbody>
+          </table>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Emergency / Breathing Overlay -->
+  <div id="emergencyOverlay" class="overlay">
+    <div class="overlay-backdrop"></div>
+    <div class="overlay-content">
+      <div class="modal" id="modalContent">
+        <h2 id="modalTitle">Possible Anxiety Episode Detected</h2>
+        <p id="modalText">
+          We detected a strong anxiety spike from the sensor. Are you experiencing significant anxiety right now?
+        </p>
+        <div class="buttons" id="modalButtons">
+          <button class="btn btn-primary" id="btnYesAnxiety">Yes, I am</button>
+          <button class="btn btn-secondary" id="btnNoAnxiety">No / False alarm</button>
+        </div>
+        <div class="modal-status">
+          Detection status: <span id="detectionStatus">Enabled</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
