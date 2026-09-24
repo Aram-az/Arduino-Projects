@@ -19,17 +19,17 @@ The `seconds` value counts one-second intervals **when `tur()` is reached**; lon
 
 The sketch uses an **Arduino Mega**, an Adafruit Motor Shield compatible with the `AFMotor` library, a servo, two analog turbidity sensor outputs, and a digital liquid-level sensor. Verify the shield version and motor power wiring before connecting pumps.
 
-| Component | Connection in sketch |
-| --- | --- |
-| Turbidity sensor 1 | `A0` |
-| Turbidity sensor 2 | `A1` |
-| Liquid-level input | Digital `52`, `INPUT_PULLUP` |
-| Start button | Digital `35`, `INPUT_PULLUP`; pressed = `LOW` |
-| Stop button | Digital `31`, `INPUT_PULLUP`; pressed = `LOW` |
-| Servo | Digital `9` |
-| Pump 1 | Motor shield M2 (`cfpump`) |
-| Pump 2 | Motor shield M4 (`pump`) |
-| Additional motor | Motor shield M1 (`motor`) |
+| Component          | Connection in sketch                          |
+| ------------------ | --------------------------------------------- |
+| Turbidity sensor 1 | `A0`                                          |
+| Turbidity sensor 2 | `A1`                                          |
+| Liquid-level input | Digital `52`, `INPUT_PULLUP`                  |
+| Start button       | Digital `35`, `INPUT_PULLUP`; pressed = `LOW` |
+| Stop button        | Digital `31`, `INPUT_PULLUP`; pressed = `LOW` |
+| Servo              | Digital `9`                                   |
+| Pump 1             | Motor shield M2 (`cfpump`)                    |
+| Pump 2             | Motor shield M4 (`pump`)                      |
+| Additional motor   | Motor shield M1 (`motor`)                     |
 
 The original wiring diagram, exact sensor models, power supply, and mechanical design are not included with this sketch. Check that pin 9 is available for a servo on your particular motor-shield setup.
 
@@ -41,20 +41,6 @@ The original wiring diagram, exact sensor models, power supply, and mechanical d
 4. Set the Serial Monitor to **9600 baud**. Press the start button to begin; use the stop button to halt after the current blocking operation finishes.
 
 Compilation and operation on the original hardware have not been independently verified for this published version.
-
-## Repository contents
-
-```text
-Water-Filtration/
-├── README.md
-└── Water-Filtration.ino
-```
-
-Add a system photo, wiring diagram, and SolidWorks screenshots only if the team agrees to publish them. Credit each teammate and identify your own contributions below.
-
-## My contribution
-
-**[Replace this section with the exact circuitry, code, CAD, testing, or integration work you personally completed. Credit your teammates and their work.]**
 
 ## Known limitations and next steps
 
