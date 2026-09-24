@@ -13,7 +13,7 @@ Each project folder contains its source and a project-specific README with hardw
 ## Running the projects
 
 - **Rock-Paper-Scissors:** Open the sketch in the Arduino IDE and consult its [strategy explanation](Arduino_RPS_Strategy/README.md). Confirm the board and hardware setup before uploading.
-- **Anxiety support prototype:** See the [project README](Anxiety-Dashboard/README.md) for connections and setup. The Arduino and browser files are present; the Node.js serial-to-WebSocket bridge referenced in that README has not yet been added to this repository, so the live dashboard cannot currently be run from this checkout alone.
+- **Anxiety support prototype:** See the [project README](Anxiety-Dashboard/README.md) for connections and setup. Run the included Node.js serial-to-WebSocket bridge alongside the Arduino sketch to stream readings to the browser.
 - **Water filtration:** See the [project README](Water-Filtration/README.md) for the pin map, library requirements, and prototype limitations.
 
 These are educational prototypes. The anxiety and water treatment projects are not validated medical or drinking-water systems.
